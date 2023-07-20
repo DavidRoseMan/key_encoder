@@ -21,11 +21,11 @@ void key_ec_Process(key_ec_type* xdata p_temp,bit IO_0,bit IO_1)
     if(IO_1)p_temp->buff1 |=  0x01;
     else    p_temp->buff1 &= ~0x01;
     
-    if((p_temp->buff0)==0xFE&&(p_temp->buff1)==0x00)
+    if((p_temp->buff0)==0xFE&&(p_temp->buff1)==0x00&&p_temp->time_fb>=p_temp->time_fb_max)
     {
         if((p_temp->value!=1)&&(p_temp->value!=0))p_temp->value = 1;
     }
-    else if((p_temp->buff0&0x07)==0x06&&(p_temp->buff1&0x07)==0x06)
+    else if((p_temp->buff0&0x07)==0x06&&(p_temp->buff1&0x07)==0x06&&p_temp->time_fb>=p_temp->time_fb_max)
     {
         if((p_temp->value!=1)&&(p_temp->value!=0))p_temp->value = 0;
     }
