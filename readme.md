@@ -9,7 +9,7 @@ key_ec_Process( &exmaple,P1_0,P1_1);//次函数每200us执行一次，IO_0,IO_1�
 
 int main(void)
 {
-    int result;
+    unsigned char result;
     while(1){
         result = key_ec_Get(&exmaple);//读取逻辑电位器的扫描值，0或1代表扫描到，0xff代表没有扫描到。
     }
